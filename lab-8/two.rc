@@ -1,0 +1,33 @@
+struct BankAccount {
+    owner: String,
+    balance: f64,
+}
+
+impl BankAccount {
+    fn new(owner: &str, balance: f64) -> Self {
+        Self { owner: owner.to_string(), balance }
+    }
+
+    fn view_balance(&self) {
+        println!("{}'s Balance: ${:.2}", self.owner, self.balance);
+    }
+
+    fn deposit(&mut self, amount: f64) {
+        self.balance += amount;
+    }
+
+    fn withdraw(&mut self, amount: f64) {
+        if amount <= self.balance {
+            self.balance -= amount;
+        }
+    }
+}
+
+fn main() {
+    let mut account = BankAccount::new("Alice", 1000.0);
+    account.view_balance();
+    account.deposit(500.0);
+    account.withdraw(300.0);
+    account.view_balance();
+}
+

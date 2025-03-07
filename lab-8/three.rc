@@ -1,0 +1,16 @@
+fn extract_word(sentence: &str, start: usize, end: usize) -> String {
+    sentence[start..end].to_string() // Convert the slice to an owned String
+}
+
+fn main() {
+    let mut sentence = String::from("Rust is fast and safe.");
+
+    let word = extract_word(&sentence, 0, 4); // Now it's an owned String
+    println!("Extracted word: {}", word);
+
+    sentence.push_str(" It is memory-efficient."); // Now modifying the original string is allowed
+    println!("Modified sentence: {}", sentence);
+
+    println!("Extracted word remains: {}", word); // Still valid
+}
+

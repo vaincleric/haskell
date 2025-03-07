@@ -1,0 +1,29 @@
+struct Student {
+    name: String,
+    grade: f32,
+}
+
+impl Student {
+    fn new(name: &str, grade: f32) -> Self {
+        Self { name: name.to_string(), grade }
+    }
+
+    fn view_grade(&self) {
+        println!("{}'s Grade: {:.2}", self.name, self.grade);
+    }
+
+    fn update_grade(&mut self, new_grade: f32) {
+        self.grade = new_grade;
+    }
+}
+
+fn main() {
+    let mut student = Student::new("Alice", 85.0);
+    
+    student.view_grade(); // View current grade
+
+    student.update_grade(90.0); // Modify grade using mutable borrowing
+    
+    student.view_grade(); // View updated grade
+}
+

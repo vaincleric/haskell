@@ -1,0 +1,14 @@
+fn analyze_temperatures(temps: &[f32]) {
+    let first_half = &temps[..temps.len() / 2]; // First half slice
+    let second_half = &temps[temps.len() / 2..]; // Second half slice
+
+    println!("First half: {:?}", first_half);
+    println!("Second half: {:?}", second_half);
+    println!("Average temperature: {:.2}", temps.iter().sum::<f32>() / temps.len() as f32);
+}
+
+fn main() {
+    let temperatures = [30.5, 32.0, 29.8, 31.2, 28.9, 27.5, 26.8];
+    analyze_temperatures(&temperatures);
+}
+
